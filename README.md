@@ -87,27 +87,27 @@ source venv/bin/activate     # Mac/Linux
 venv\Scripts\activate        # Windows
 ```
 
-###Step 3: Install dependencies
+### Step 3: Install dependencies
 ```bash
 pip install -r requirements.txt
 ```
 
-###Step 4: Run the Streamlit app
+### Step 4: Run the Streamlit app
 ```bash
 streamlit run app.py
 ```
 
-##7. Results
+## 7. Results
 Model	Training Accuracy	Test Accuracy
 Logistic Regression	83.42%	76.19%
 Random Forest	100%	76.19%
 Deep Neural Network	96%	80–82%
 
-##8. Future Enhancements
+## 8. Future Enhancements
 Deploy the application on Streamlit Cloud / Render for public access
 Add hyperparameter tuning for better performance
 Use SHAP/LIME for interpretability (understanding model decisions)
 
-##9. Author
+## 9. Author
 Monisha Patnana
 Machine Learning & Deep Learning Enthusiast

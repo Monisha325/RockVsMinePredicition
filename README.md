@@ -35,7 +35,7 @@ rock-vs-mine-prediction/
 ├── app.py                               # Streamlit app
 ├── requirements.txt                     # Dependencies
 └── README.md                            # Documentation
-
+```
 ---
 
 **## 3. Dataset**

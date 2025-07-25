@@ -38,7 +38,7 @@ rock-vs-mine-prediction/
 
 ---
 
-## **3. Dataset**
+**## 3. Dataset**
 - **Source:** UCI Machine Learning Repository  
 - **Samples:** 208 sonar reflections  
 - **Features:** 60 numerical attributes per sample  

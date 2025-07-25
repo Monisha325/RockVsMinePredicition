@@ -38,7 +38,7 @@ rock-vs-mine-prediction/
 ```
 ---
 
-**## 3. Dataset**
+## 3. Dataset
 - **Source:** UCI Machine Learning Repository  
 - **Samples:** 208 sonar reflections  
 - **Features:** 60 numerical attributes per sample  
@@ -78,20 +78,24 @@ An ensemble model for improved handling of complex data.
 ```bash
 git clone https://github.com/Monisha325/RockVsMinePredicition.git
 cd RockVsMinePredicition
+```
 
 ###Step 2: Create a virtual environment
 ```bash
 python -m venv venv
 source venv/bin/activate     # Mac/Linux
 venv\Scripts\activate        # Windows
+```
 
 ###Step 3: Install dependencies
 ```bash
 pip install -r requirements.txt
+```
 
 ###Step 4: Run the Streamlit app
 ```bash
 streamlit run app.py
+```
 
 ##7. Results
 Model	Training Accuracy	Test Accuracy

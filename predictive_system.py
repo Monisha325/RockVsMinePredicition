@@ -4,13 +4,14 @@ import numpy as np
 import os
 from PIL import Image
 
-# --- Load the trained model safely ---
-try:
-    model_path = os.path.join('models', 'trained_model.sav')  # Relative path
-    model = pickle.load(open(model_path, 'rb'))
-except FileNotFoundError:
-    st.error("Model file not found. Please make sure 'trained_model.sav' exists inside a 'models' folder.")
+# --- Load the trained model safely with robust path ---
+model_path = os.path.join(os.path.dirname(__file__), 'models', 'trained_model.sav')
+
+if not os.path.exists(model_path):
+    st.error(f"Model file not found at {model_path}. Please check the path and file.")
     st.stop()
+
+model = pickle.load(open(model_path, 'rb'))
 
 # --- Page configuration ---
 st.set_page_config(page_title="Rock vs Mine Prediction", layout="centered")

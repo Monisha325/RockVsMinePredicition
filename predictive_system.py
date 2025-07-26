@@ -4,7 +4,7 @@ import numpy as np
 from PIL import Image
 
 # Load your trained model
-model = pickle.load(open('model/trained_model.sav', 'rb'))
+model = pickle.load(open('models/trained_model.sav', 'rb'))
 
 # Set Streamlit page config
 st.set_page_config(page_title="Rock vs Mine Prediction", layout="centered")

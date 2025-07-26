@@ -1,29 +1,38 @@
 import streamlit as st
 import pickle
 import numpy as np
+import os
 from PIL import Image
 
-# Load your trained model
-model = pickle.load(open('models/trained_model.sav', 'rb'))
+# --- Load the trained model safely ---
+try:
+    model_path = os.path.join('models', 'trained_model.sav')  # Relative path
+    model = pickle.load(open(model_path, 'rb'))
+except FileNotFoundError:
+    st.error("Model file not found. Please make sure 'trained_model.sav' exists inside a 'models' folder.")
+    st.stop()
 
-# Set Streamlit page config
+# --- Page configuration ---
 st.set_page_config(page_title="Rock vs Mine Prediction", layout="centered")
 
-# Show banner image with fallback
+# --- Banner Image with fallback ---
 try:
-    banner = Image.open("header_image.jpg")  # Ensure this file exists in the same directory
+    banner = Image.open("header_image.jpg")
     st.image(banner, use_container_width=True)
-except Exception as e:
+except Exception:
     st.warning("Local image failed to load. Showing fallback image.")
-    st.image("https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Sonar_image_example.jpg/640px-Sonar_image_example.jpg", use_container_width=True)
+    st.image(
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Sonar_image_example.jpg/640px-Sonar_image_example.jpg",
+        use_container_width=True
+    )
 
-# App title
+# --- App Title ---
 st.markdown("<h2 style='text-align: center;'>Rock vs Mine Predictor</h2>", unsafe_allow_html=True)
 
-# Input box
+# --- Input Field ---
 input_data = st.text_input("Enter 60 comma-separated numbers:")
 
-# Predict button style
+# --- Custom Predict Button Style ---
 st.markdown("""
     <style>
     .stButton > button {
@@ -44,13 +53,13 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# Prediction logic
+# --- Prediction Logic ---
 if st.button("Predict"):
     try:
         input_list = list(map(float, input_data.strip().split(",")))
         if len(input_list) != 60:
             raise ValueError("Please enter exactly 60 values.")
-        
+
         input_array = np.array(input_list).reshape(1, -1)
         prediction = model.predict(input_array)[0]
 
@@ -60,5 +69,5 @@ if st.button("Predict"):
     except Exception as e:
         st.error("Invalid input. Please enter 60 comma-separated numbers.")
         st.exception(e)
-        
+
 

@@ -108,6 +108,11 @@ Deploy the application on Streamlit Cloud / Render for public access
 Add hyperparameter tuning for better performance
 Use SHAP/LIME for interpretability (understanding model decisions)
 
+## 10.  Live Model Output: Logistic Regression predicting object as Rock (R)
+My trained model correctly identifies the object as a Rock based on sonar signal input features.
+<img width="1014" height="909" alt="image" src="https://github.com/user-attachments/assets/f5e10e0a-55e7-4619-8045-34332d5b2dc8" />
+
+
 ## 9. Author
 Monisha Patnana
 (Machine Learning & Deep Learning Enthusiast)

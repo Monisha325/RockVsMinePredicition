@@ -60,4 +60,5 @@ if st.button("Predict"):
     except Exception as e:
         st.error("Invalid input. Please enter 60 comma-separated numbers.")
         st.exception(e)
+        
 
